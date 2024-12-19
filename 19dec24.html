@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Rectangle</title>
+</head>
+<body>
+    <div id="rectangle"></div>
+
+    <script>
+        // Задаем размеры прямоугольника
+        let w = 7; // ширина
+        let h = 5; // высота
+
+        // Генерация полого прямоугольника
+        let rectangle = "";
+        for (let i = 0; i < h; i++) {
+            if (i === 0 || i === h - 1) {
+                // Верхняя и нижняя граница - заполненная строка
+                rectangle += "$".repeat(w) + "\n";
+            } else {
+                // Средние строки - символы по краям и пробелы внутри
+                rectangle += "?" + " ".repeat(w - 2) + "&" + "\n";
+            }
+        }
+
+        // Отображаем внутри <div id="rectangle"> через <pre>
+        document.getElementById("rectangle").innerHTML = `<pre>${rectangle}</pre>`;
+    </script>
+</body>
+</html>
